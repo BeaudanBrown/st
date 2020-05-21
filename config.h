@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=14:antialias=true:autohint=true";
-static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static char *font = "mono:pixelsize=16:antialias=true:autohint=true";
+static char *font2[] = { "Symbols Nerd Font:style=1000-em:pixelsize=16:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
@@ -108,34 +108,37 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
-	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
-};
+  /* 8 normal colors */
+  "#282a2e", /* black   */
+  "#a54242", /* red     */
+  "#8c9440", /* green   */
+  "#de935f", /* yellow  */
+  "#5f819d", /* blue    */
+  "#85678f", /* magenta */
+  "#5e8d87", /* cyan    */
+  "#707880", /* white   */
 
+  /* 8 bright colors */
+  "#373b41", /* black   */
+  "#cc6666", /* red     */
+  "#b5bd68", /* green   */
+  "#f0c674", /* yellow  */
+  "#81a2be", /* blue    */
+  "#b294bb", /* magenta */
+  "#8abeb7", /* cyan    */
+  "#c5c8c6", /* white   */
+
+  /* special colors */
+  [255] = 0,
+  "#add8e6", /* 256 -> cursor */
+  "#555555", /* 257 -> rev cursor*/
+  "#1d1f21", /* 258 -> background */
+  "#c5c8c6", /* 259 -> foreground */
+};
 
 /*
  * Default colors (colorname index)
@@ -267,8 +270,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
 	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
-	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
-	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
+	{ MODKEY,               XK_u,           kscrollup,      {.i = 5} },
+	{ MODKEY,               XK_d,           kscrolldown,    {.i = 5} },
 	{ TERMMOD,              XK_Up,          zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Down,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },
